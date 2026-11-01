@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
+from selenium.webdriver.common.keys import Keys
 
 url = "https://demoqa.com/automation-practice-form"
 
@@ -9,7 +10,6 @@ last_name = "dalisay"
 email = "mathewdalisay123@mema.com"
 gender = "Male"
 mobile_number = "09123456789"
-date_of_birth = "01 Jan 1990"
 
 driver = webdriver.Chrome()
 driver.get(url)
@@ -33,11 +33,34 @@ mobile_number_input = driver.find_element(By.ID, "userNumber")
 mobile_number_input.send_keys(mobile_number)
 time.sleep(1)
 
-date_of_birth_input = driver.find_element(By.ID, "dateOfBirth")
-date_of_birth_input.send_keys(date_of_birth)
+driver.execute_script("window.scrollTo(0, 250);")
+date_of_birth_input = driver.find_element(By.ID, "dateOfBirthInput")
+date_of_birth_input.click()
 time.sleep(1)
 
+driver.execute_script("window.scrollTo(0, 250);")
 
+date_of_birth_input = driver.find_element(By.XPATH, "//div[@aria-label='Choose Tuesday, November 10th, 2026']")
+date_of_birth_input.click() 
+driver.execute_script("window.scrollTo(0, 300);")
+time.sleep(1)
+
+driver.execute_script("window.scrollTo(0, 250);")
+time.sleep(1)
+
+hobbies_input = driver.find_element(By.XPATH, "//div[@id='hobbiesWrapper']//div[@class='col-md-9 col-sm-12']//div[2]")
+hobbies_input.click()
+time.sleep(1)
+
+hobbies_input = driver.find_element(By.XPATH, "//div[@id='hobbiesWrapper']//div[@class='col-md-9 col-sm-12']//div[1]")
+hobbies_input.click()
+driver.execute_script("window.scrollTo(0, 400);")
+time.sleep(1)
+
+submit_button = driver.find_element(By.ID, "submit")
+submit_button.click()
+
+driver.execute_script("window.scrollTo(0, 400);")
 
 input('Click enter to exit...')
 driver.quit()
