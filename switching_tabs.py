@@ -11,6 +11,9 @@ driver.maximize_window()
 time.sleep(3)
 driver.switch_to.new_window()
 driver.get(url_2)
+time.sleep(3)
+driver.switch_to.window(driver.window_handles[0])
+
 
 input("press enter to exit...")
 driver.quit()
