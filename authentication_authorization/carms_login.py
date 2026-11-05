@@ -9,3 +9,7 @@ driver.get(url)
 username = "carms@customs.gov.ph"
 password = "P@ssword12345"
 
+
+driver.maximize_window()
+
+
